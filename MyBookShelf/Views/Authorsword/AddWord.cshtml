@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.AuthorsWord
+
+@{
+    ViewData["Title"] = "Yazar Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+
+<center>
+    <h2 style="color: #936231;">Yazar Sözü Ekleme Sayfası</h2>
+</center>
+
+<br />
+
+<form class="form-group" method="post">
+
+    @Html.HiddenFor(x => x.AuthorsWordID)
+
+    <label>Yazar</label>
+    @Html.DropDownListFor(x => x.AuthorID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+    <label>Söz</label>
+    @Html.TextBoxFor(x => x.AuthorWord, new { @class = "form-control" })
+    <br />
+    <label>Durum</label>
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Söz Ekle</button>
+</form>
+
+
+
+

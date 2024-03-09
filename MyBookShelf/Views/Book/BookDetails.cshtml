@@ -1,0 +1,66 @@
+﻿@model EntityLayer.Concrete.Book
+
+@{
+    /**/
+
+    ViewBag.Title = "BookDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+
+<center>
+    <h2 style="color: #936231;">Kitap Detayı</h2>
+</center>
+
+<br />
+
+<form class="form-group" asp-action="EditBook" asp-controller="Book" method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.BookID)
+
+    <div class="form-group">
+        @Html.Label("Kitap Adı")
+        <input type="text" asp-for="BookName" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Yazar Adı")
+        @Html.DropDownListFor(x => x.AuthorID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Sayfa Sayısı")
+        <input type="text" asp-for="NumberOfBookPage" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Kategori")
+        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Durum")
+        <input type="text" asp-for="Status" class="form-control" disabled=“disabled” readonly="readonly" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Fiyat")
+        <input type="text" asp-for="BookPrice" class="form-control" />
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        @Html.Label("Görsel")
+        <input type="file" name="BookImage" />
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="form-group">
+        @Html.Label("Açıklama")
+        <input type="text" asp-for="BookDescription" class="form-control" />
+    </div>
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

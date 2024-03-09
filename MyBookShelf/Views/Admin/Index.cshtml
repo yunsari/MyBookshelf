@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<Admin>
+
+@{
+    ViewBag.Title = "AdminSettings";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    @await Component.InvokeAsync("_AdminHeadPartial")
+    
+</head>
+<body>
+
+    <br />
+
+    <center>
+        <h2 style="color: #316293;">Adminler</h2>
+    </center>
+
+    <br />
+    <br />
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Admin</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AdminID</td>
+                <td>@item.Username</td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

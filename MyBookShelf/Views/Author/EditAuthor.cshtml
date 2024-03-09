@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Author
+
+@{
+    ViewBag.Title = "AuthorDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<br />
+
+<center>
+    <h2 style="color: #936231;">Yazar Detayı</h2>
+</center>
+
+<br />
+
+<form method="post">
+    @Html.HiddenFor(x => x.AuthorID)
+
+    <label>Yazar</label>
+    @Html.TextBoxFor(x => x.AuthorNameSurname, new { @class = "form-control" })
+    <br />
+    <label>Ülke</label>
+    @Html.TextBoxFor(x => x.AuthorCountry, new { @class = "form-control" })
+    <br />
+    <label>Doğum Tarihi</label>
+    @Html.TextBoxFor(x => x.AuthorBirthday, new { @class = "form-control" })
+    <br />
+    <label>Durum</label>
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    <br />
+    <br />
+    <label>Görsel</label>
+    @Html.TextBoxFor(x => x.AuthorImage, new { @class = "form-control" })
+    <br />
+    <br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.AuthorDescription, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

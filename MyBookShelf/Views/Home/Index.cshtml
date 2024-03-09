@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+
+    <title>Ana Sayfa</title>
+</head>
+<body>
+    <!-- Top banner -->
+    @await Component.InvokeAsync("_HomeTopBannerSectionPartial")
+    <!-- Top banner end -->
+    <!-- About me -->
+    @await Component.InvokeAsync("_HomeAboutMeSectionPartial")
+    <!-- About me end -->
+    @await Html.PartialAsync("~/Views/Partials/HomePartials/_AuthorPartial.cshtml")
+    <br />
+    @await Html.PartialAsync("~/Views/Partials/HomePartials/_CounterPartial.cshtml")
+    <br />
+    @await Component.InvokeAsync("_AuthorWordsPartial")
+    <br />
+    <br />
+    <br />
+    @await Html.PartialAsync("~/Views/Partials/HomePartials/_BestBooksPartial.cshtml")
+    <br />
+</body>
+</html>

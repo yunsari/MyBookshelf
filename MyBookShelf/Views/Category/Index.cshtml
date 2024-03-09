@@ -1,0 +1,75 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
+@{
+    ViewBag.Title = "Kategori";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    @await Component.InvokeAsync("_CategoryHeadPartial")
+    
+</head>
+<body>
+
+    <br />
+
+    <center>
+        <h2 style="color: #316293;">Kategoriler</h2>
+    </center>
+
+    <br />
+    <br />
+
+    <table>
+        <tr>
+            <th style="text-align:center">Kategori</th>
+            <th style="text-align:center">Durum</th>
+            <th style="text-align:center">Düzenle</th>
+            <th style="text-align:center">Durum Değiştir</th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align:center">@item.CategoryName</td>
+                @if (item.Status == false)
+                {
+                    <td style="text-align:center; color: red;">Pasif</td>
+                }
+                else
+                {
+                    <td style="text-align:center; color: green;">Aktif</td>
+                }
+                <td style="text-align:center"><a href="/Category/EditCategory/@item.CategoryID" class="btn btn-warning">Düzenle</a></td>
+                @if (item.Status == true)
+                {
+                    <td style="text-align:center"><a href="/Category/PassiveCategory/@item.CategoryID" class="btn btn-secondary">Pasif Et</a></td>
+
+                }
+                else
+                {
+                    <td style="text-align:center"><a href="/Category/ActiveCategory/@item.CategoryID" class="btn btn-success">Aktif Et</a></td>
+                }
+            </tr>
+        }
+
+    </table>
+
+    <br />
+
+    <a href="/Category/AddCategory/" class="btn btn-info">Kategori Ekle</a>
+
+
+</body>
+</html>
+
+
+
+
+
+

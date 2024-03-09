@@ -1,0 +1,21 @@
+﻿@using EntityLayer.Concrete
+@model (List<AuthorsWord> authorsWord, List<Author> authorName)
+
+<!-- Quotes -->
+<section class="fh5co-quotes">
+    <div class="site-container">
+        <div class="about-me-slider">
+           @foreach (var item in Model.authorsWord)
+            {
+                <div>
+                    <h2 class="universal-h2 universal-h2-bckg">Yazarlar Ne Söylüyor?</h2>
+                    <p>@item.AuthorWord</p>
+                    <img src="~/dist/images/quotes.svg" alt="quotes svg">
+                    <h4>@item.Author.AuthorNameSurname</h4>
+                    <p>Kaydır</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Quotes end -->

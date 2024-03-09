@@ -1,0 +1,71 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@using EntityLayer.Concrete
+@model IPagedList<Book>
+
+@{
+    ViewData["Title"] = "Kitaplar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+
+<head>
+    <title>Kitaplar</title>
+
+    <link href="~/dist/css/pagination.css" rel="stylesheet" />
+
+    <link href="~/css/card-design.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <!-- Top banner -->
+
+    <section class="fh5co-top-banner">
+        <div class="top-banner__inner site-container">
+            <div class="top-banner__text">
+                <div class="top-banner__text-up">
+                    <h2 class="top-banner__h2">Kitap Listesi</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top banner end -->
+    <!---->
+    <section class="fh5co-books" style="margin-top: 5%">
+        <div class="site-container px-5">
+            <div class="books">
+                <div class="row">
+                    @foreach (var k in Model)
+                    {
+                        <div class="single-book">
+                            <div class="col-md-12 col-lg-1 pb-5 px-5">
+                                <a href="~/Home/BookDetails/@k.BookID" class="single-book__img">
+                                    <img src="~/uploads/@k.BookImage" width="254" height="291">
+                                    <div class="single-book_download">
+                                    </div>
+                                </a>
+                                <center><h4 class="single-book__title">@k.BookName</h4></center>
+                                <br />
+                                <center><span class="single-book__price">@k.BookPrice.ToString("c")</span></center>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="margin-right: 10%">
+        <div class="custom-pagination">
+            @Html.PagedListPager(Model, page => Url.Action("Books", new { page }))
+        </div>
+    </div>
+</body>
+
+</html>

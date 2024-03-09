@@ -1,0 +1,59 @@
+﻿@using EntityLayer.Concrete
+@model List<AuthorsWord>
+
+@{
+    ViewBag.Title = "Yazar Sözleri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    @await Component.InvokeAsync("_WordHeadPartial")
+   
+</head>
+<body>
+    <br />
+    <center>
+        <h2 style="color: #316293;">Yazarların Sözleri</h2>
+    </center>
+    <br />
+    <br />
+    <table>
+        <tr>
+            <th>Yazar</th>
+            <th>Söz</th>
+            <th>Durum</th>
+            <th>Durum Değiştir</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Author.AuthorNameSurname</td>
+                <td>@item.AuthorWord</td>
+                @if (item.Status == false)
+                {
+                    <td style="text-align:center; color: red;">Pasif</td>
+                }
+                else
+                {
+                    <td style="text-align:center; color: green;">Aktif</td>
+                }
+                @if (item.Status == true)
+                {
+                    <td style="text-align:center"><a href="/Authorsword/PassiveWord/@item.AuthorsWordID" class="btn btn-secondary">Pasif Et</a></td>
+
+                }
+                else
+                {
+                    <td style="text-align:center"><a href="/Authorsword/ActiveWord/@item.AuthorsWordID" class="btn btn-success">Aktif Et</a></td>
+                }
+            </tr>
+        }
+    </table>
+    <br />
+    <a href="/Authorsword/AddWord/" class="btn btn-info">Söz Ekle</a>
+</body>
+</html>

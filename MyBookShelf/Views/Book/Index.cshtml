@@ -1,0 +1,81 @@
+﻿@using EntityLayer.Concrete
+@model List<Book>
+
+@{
+    ViewBag.Title = "Kitap";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    @await Component.InvokeAsync("_BookHeadPartial")
+    
+</head>
+<body>
+
+    <br />
+
+    <center>
+        <h2 style="color: #936231;">Kitaplar</h2>
+    </center>
+
+    <br />
+    <br />
+
+    <table>
+        <tr>
+            <th>Kitap</th>
+            <th>Yazar</th>
+            <th>Sayfa</th>
+            <th>Kategori</th>
+            <th>Fiyat</th>
+            <th>Durum</th>
+            <th>Durum Değiştir</th>
+            <th>Detaylar</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BookName</td>
+                <td>@item.Author.AuthorNameSurname</td>
+                <td>@item.NumberOfBookPage</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.BookPrice₺</td>
+                @if (item.Status == false)
+                {
+                    <td style="text-align:center; color: red;">Pasif</td>
+                }
+                else
+                {
+                    <td style="text-align:center; color: green;">Aktif</td>
+                }
+                @if (item.Status == true)
+                {
+                    <td style="text-align:center"><a href="/Book/PassiveBook/@item.BookID" class="btn btn-secondary">Pasif Et</a></td>
+
+                }
+                else
+                {
+                    <td style="text-align:center"><a href="/Book/ActiveBook/@item.BookID" class="btn btn-success">Aktif Et</a></td>
+                }
+                <td>
+                    <a href="~/Book/BookDetails/@item.BookID" style="text-decoration: none; color: white" class="books-form-btn">
+                        <span>
+                            Detay
+                        </span>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <br />
+
+    <a href="/Book/AddBook/" class="btn btn-info">Kitap Ekle</a>
+
+
+</body>
+</html>

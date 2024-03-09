@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.Category
+
+@{
+    ViewData["Title"] = "EditCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<center>
+    <h1>Kategori Güncelleme Sayfası</h1>
+</center>
+
+<form method="post">
+    @Html.HiddenFor(x => x.CategoryID)
+    <div class="form-group">
+        @Html.Label("Kategori Adı")
+        <input type="text" asp-for="CategoryName" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Durum")
+        <input type="text" asp-for="Status" class="form-control" disabled=“disabled”  readonly="readonly" />
+    </div>
+    <br />
+    <button class="btn btn-outline-info">Değişiklikleri Kaydet</button>
+</form>
+
+
+

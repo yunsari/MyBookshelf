@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.Book
+
+<center>
+    <br />
+    <br />
+    <br />
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="@Model.BookImage" alt="Book Image" style="width:400px;height:500px;">
+            </div>
+            <div class="flip-card-back">
+                <br />
+                <h1>@Model.BookName</h1>
+                <br />
+                <br />
+                <h2>@Model.Author.AuthorNameSurname</h2>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <p><strong>Kategori: </strong>@Model.Category.CategoryName</p>
+                <br />
+                <p><strong>Menşei: </strong>@Model.Author.AuthorCountry</p>
+                <br />
+                <p><strong>Sayfa Sayısı: </strong>@Model.NumberOfBookPage</p>
+                <br />
+                <p><strong>Fiyat: </strong>@Model.BookPrice ₺</p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    @*   <div>
+    @Model.BookDescription
+    </div> *@
+    <br />
+    <br />
+    <br />
+</center>

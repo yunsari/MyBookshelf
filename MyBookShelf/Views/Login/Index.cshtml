@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concrete.Admin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  @await Component.InvokeAsync("_LoginHeadPartial")
+
+</head>
+<body>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('/dist/images/bg-01.jpg');">
+            <div class="wrap-login100 p-t-30 p-b-50">
+                <span class="login100-form-title p-b-41">
+                    MyBookshelf
+                </span>
+                <form method="post" class="login100-form validate-form p-b-33 p-t-5">
+                    <div class="wrap-input100 validate-input" data-validate="Kullanıcı Adı Giriniz.">
+                        <input class="input100" type="text" name="Username" placeholder="Kullanıcı Adı">
+                        <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Şifre Giriniz.">
+                        <input class="input100" type="password" name="Password" placeholder="Şifre">
+                        <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn m-t-32">
+                        <button type="submit" class="login100-form-btn">
+                            Giriş Yap
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="dropDownSelect1"></div>
+
+    @await Component.InvokeAsync("_LoginScriptPartial")
+
+</body>
+</html>

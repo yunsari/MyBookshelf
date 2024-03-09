@@ -1,0 +1,30 @@
+﻿@using BusinessLayer.Abstract
+@inject IBookService BookManager
+
+<!-- Books -->
+<section class="fh5co-books">
+    <div class="site-container">
+        <h2 class="universal-h2 universal-h2-bckg">Favori Kitaplar</h2>
+        <div class="books">
+
+            @foreach (var item in BookManager.GetListAll())
+            {
+                @if (item.Favorite == true)
+                {
+                    <div class="single-book">
+                        <a href="/Book/BookDetails/@item.BookID/" class="single-book__img">
+                            <img src="@item.BookImage" width="214"; height="241">
+                            <div class="single-book_download">
+                                <img src="~/dist/images/download.svg" alt="book image">
+                            </div>
+                        </a>
+                        <h4 class="single-book__title">@item.BookName</h4>
+                        <span class="single-book__price">@item.BookPrice TL</span>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</section>
+<!-- Books -->

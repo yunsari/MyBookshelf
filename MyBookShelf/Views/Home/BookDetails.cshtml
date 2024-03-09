@@ -1,0 +1,110 @@
+﻿@model EntityLayer.Concrete.Book
+
+@{
+    ViewData["Title"] = "BookDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+
+<head>
+    <title>Kitap Detayı</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 400px;
+            height: 500px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #936231;
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top banner -->
+    <section class="fh5co-top-banner"></section>
+    <!-- Top banner end -->
+
+    <center>
+        <br />
+        <br />
+        <br />
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="~/uploads/@Model.BookImage" alt="Book Image" style="width:400px;height:500px;">
+                </div>
+                <div class="flip-card-back">
+                    <br />
+                    <h1>@Model.BookName</h1>
+                    <br />
+                    <br />
+                    <h2>@Model.Author.AuthorNameSurname</h2>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <p><strong>Kategori: </strong>@Model.Category.CategoryName</p>
+                    <br />
+                    <p><strong>Menşei: </strong>@Model.Author.AuthorCountry</p>
+                    <br />
+                    <p><strong>Sayfa Sayısı: </strong>@Model.NumberOfBookPage</p>
+                    <br />
+                    <p><strong>Fiyat: </strong>@Model.BookPrice ₺</p>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <div>
+            @Model.BookDescription
+        </div>
+        <br />
+        <br />
+        <br />
+    </center>
+
+</body>
+</html>
+

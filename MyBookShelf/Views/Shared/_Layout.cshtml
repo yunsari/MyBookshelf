@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/dist/css/style.css" />
+    <link rel="stylesheet" href="~/dist/css/slick.css">
+    <link rel="icon" href="https://play-lh.googleusercontent.com/aPMCHSbtWYZbJezs1iaQq0k1msiBS-DCLssfVAFCIiyDny-nr_iltaDJeQF0MJgLZIQ"
+          type="image/x-icon">
+</head>
+<body>
+    <div>
+        <nav class="site-navigation">
+            <div class="site-navigation-inner site-container">
+                <a href="/Home/Index/"><img src="~/dist/images/logo.png" alt="site logo"></a>
+                <div class="main-navigation">
+                    <ul class="main-navigation__ul">
+                        <li><a href="/Home/Index/">Ana sayfa</a></li>
+                        <li><a href="/Home/Books/">KİTAPLAR</a></li>
+                        <li><a href="/Home/About/">Hakkında</a></li>
+                        <li><a href="/Home/Contact/">İLETİŞİM</a></li>
+                        <li><a href="/Home/IstiklalMarsi/">İstİklal Marşı</a></li>
+                    </ul>
+                </div>
+                <div id="myBtn" class="burger-container" onclick="myFunction(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <script>
+                    function myFunction(x) {
+                        x.classList.toggle("change");
+                    }
+                </script>
+
+            </div>
+        </nav>
+        <!-- Navigation end -->
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-bottom">
+                <div class="site-container footer-bottom-inner">
+                    <p>© @DateTime.Now.Year | MyBookshelf | <a href="https://github.com/yunsari/" target="_blank">GitHub</a>.</p>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer end -->
+        <!-- Scripts -->
+        <script src="~/dist/js/jquery.min.js"></script>
+        <script src="~/dist/js/slick.min.js"></script>
+        <script src="~/dist/js/main.js"></script>
+    </div>
+</body>
+</html>

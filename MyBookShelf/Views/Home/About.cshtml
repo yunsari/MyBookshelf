@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Hakkında";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+
+<head>
+    <title>MyBookshelf Nedir?</title>
+</head>
+
+<body>
+    <!-- Top banner -->
+    <section class="fh5co-top-banner"></section>
+    <!-- Top banner end -->
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="site-container">
+        <center>
+            <h1 class="text-center">MyBookshelf Nedir?</h1>
+        </center>
+        <br />
+        <br />
+        <br />
+        <br />
+        <center>
+            <p class="text-center">MyBookshelf, okuduğum kitapları ve bilgilerini listelediğim ve detaylarını istediğim zaman görebildiğim bir web projesidir.</p>
+        </center>
+        <br />
+        <br />
+        <center>
+            <p>Bu proje Asp.Net MVC ve MSSQL kullanarak yapılmış dinamik bir websitesidir.</p>
+        </center>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </div>
+
+
+    <!-- Counter SIDE -->
+    @await Html.PartialAsync("~/Views/Partials/AboutPartials/_CounterPartial.cshtml")
+
+    <!-- Counter SIDE -->
+
+</body>
+
+</html>

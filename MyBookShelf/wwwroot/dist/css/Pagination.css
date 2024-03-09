@@ -1,0 +1,153 @@
+﻿.custom-pagination {
+    height: 36px;
+    margin-left: 48%;
+    padding: 0;
+}
+
+    .pager, .custom-pagination ul {
+        margin-left: 0;
+        *zoom: 1
+    }
+
+    .custom-pagination ul {
+        padding: 0;
+        display: inline-block;
+        *display: inline;
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 2px 2px gray;
+        -moz-box-shadow: 0 2px 2px gray;
+        box-shadow: 0 2px 2px gray
+    }
+
+    .custom-pagination li {
+        display: inline
+    }
+
+    .custom-pagination a {
+        float: left;
+        padding: 0 12px;
+        line-height: 30px;
+        text-decoration: none;
+        border: 1px solid black;
+        border-left-width: 0
+    }
+
+        .custom-pagination .active a, .custom-pagination a:hover {
+            background-color: rebeccapurple;
+            color: white;
+        }
+
+    .custom-pagination .active a {
+        background-color: orangered;
+        color: white;
+        cursor: default
+    }
+
+    .custom-pagination .disabled a, .custom-pagination .disabled a:hover, .custom-pagination .disabled span {
+        color: black;
+        background-color: transparent;
+        cursor: default
+    }
+
+    .custom-pagination li:first-child a, .custom-pagination li:first-child span {
+        border-left-width: 1px;
+        -webkit-border-radius: 3px 0 0 3px;
+        -moz-border-radius: 3px 0 0 3px;
+        border-radius: 3px 0 0 3px
+    }
+
+    .custom-pagination li:last-child a {
+        -webkit-border-radius: 0 3px 3px 0;
+        -moz-border-radius: 0 3px 3px 0;
+        border-radius: 0 3px 3px 0
+    }
+
+.custom-pagination-centered {
+    text-align: center
+}
+
+.custom-pagination-right {
+    text-align: right
+}
+
+.pager {
+    margin-bottom: 18px;
+    text-align: center
+}
+
+    .pager:after, .pager:before {
+        display: table;
+        content: ""
+    }
+
+    .pager li {
+        display: inline
+    }
+
+    .pager a {
+        display: inline-block;
+        padding: 5px 12px;
+        background-color: white;
+        border: 1px solid #ddd;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px
+    }
+
+        .pager a:hover {
+            text-decoration: red;
+            background-color: orangered
+        }
+
+    .pager .next a {
+        float: right
+    }
+
+    .pager .previous a {
+        float: left
+    }
+
+    .pager .disabled a, .pager .disabled a:hover {
+        color: #999;
+        background-color: blue!important; 
+        cursor: default
+    }
+
+.custom-pagination .prev.disabled span {
+    float: left;
+    padding: 0 12px;
+    line-height: 30px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 1px
+}
+
+.custom-pagination .next.disabled span {
+    float: left;
+    padding: 0 12px;
+    line-height: 30px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 0
+}
+
+.custom-pagination li.active, .custom-pagination li.disabled {
+    float: left;
+    padding: 0 12px;
+    line-height: 30px;
+    text-decoration: none;
+    border: 1px solid black;
+    border-left-width: 0
+}
+
+.custom-pagination li.active {
+    background: goldenrod;
+    color: white;
+}
+
+.custom-pagination li:first-child {
+    border-left-width: 1px;
+}

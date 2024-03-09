@@ -1,0 +1,24 @@
+﻿@using BusinessLayer.Abstract
+@inject IAuthorService AuthorManager
+
+<section class="fh5co-blog">
+    <div class="site-container">
+        <h2 class="universal-h2 universal-h2-bckg">Yazarlar</h2>
+        <div class="blog-slider blog-inner">
+
+            @foreach (var item in AuthorManager.GetListAll())
+            {
+                <div class="single-blog">
+                    <div class="single-blog__img">
+                        <img style="width: 266px; height: 349px;" src="@item.AuthorImage" alt="blog image">
+                    </div>
+                    <div class="single-blog__text">
+                        <h4>@item.AuthorNameSurname</h4>
+                        <span>@item.AuthorBirthday</span>
+                        <p>@item.AuthorDescription</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
